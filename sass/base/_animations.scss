@@ -1,0 +1,41 @@
+@use "../abstracts/" as *;
+// STYLES FOR THE ANIMATIONS
+@keyframes moveinleft {
+  0% {
+    opacity: 0;
+    transform: translateX(rem-calc(-100));
+  }
+  80% {
+    transform: translateX(rem-calc(10));
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveinright {
+  0% {
+    opacity: 0;
+    transform: translateX(rem-calc(100));
+  }
+  80% {
+    transform: translateX(rem-calc(-10));
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveinbottom {
+  0% {
+    opacity: 0;
+    transform: translateY(rem-calc(50));
+  }
+  80% {
+    transform: translateY(rem-calc(-10));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,62 @@
+@use "../abstracts/" as *;
+// STYLES FOR THREE IMAGES IN ABOUT SECTION
+.composition {
+  position: relative;
+  flex-shrink: 0;
+  @include screenSize(tablet) {
+    margin: $gutter-base;
+    display: flex;
+  }
+  &__photo {
+    width: 55%;
+    box-shadow: $box-shadow;
+    position: absolute;
+    z-index: 10;
+    transition: all 0.2s;
+    outline-offset: rem-calc(20);
+    @include screenSize(tablet) {
+      position: relative;
+      width: 33%;
+    }
+
+    &--p1 {
+      left: 0;
+      top: rem-calc(-20);
+      @include screenSize(tablet) {
+        top: 0;
+        flex-basis: 30%;
+        transform: scale(1.2);
+      }
+    }
+    &--p2 {
+      right: 0;
+      top: rem-calc(20);
+      @include screenSize(tablet) {
+        top: 0;
+        flex-basis: 30%;
+        transform: scale(1.3);
+        z-index: 50;
+      }
+    }
+    &--p3 {
+      left: 20%;
+      top: rem-calc(100);
+      @include screenSize(tablet) {
+        left: 0;
+        top: 0;
+        flex-basis: 30%;
+        transform: scale(1.2);
+      }
+    }
+
+    &:hover {
+      transform: scale(1.05) translateY(rem-calc(-5));
+      box-shadow: $box-shadow-hover;
+      z-index: 20;
+      outline: rem-calc(15) solid $color-primary;
+    }
+  }
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.95);
+  }
+}

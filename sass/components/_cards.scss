@@ -1,0 +1,212 @@
+@use "../abstracts/" as *;
+// STYLES FOR CARDS IN TOURS SECTION
+.card {
+  perspective: rem-calc(1500);
+  position: relative;
+  height: rem-calc(500);
+
+  &__side {
+    height: rem-calc(500);
+    transition: all 0.8s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: rem-calc(5);
+    box-shadow: $box-shadow;
+    overflow: hidden;
+
+    &--front {
+      background-color: $color-white;
+    }
+    &--back {
+      transform: rotateY(180deg);
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        );
+      }
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+
+  // CARD FRONT SIDE
+
+  &__picture {
+    background-size: cover;
+    height: rem-calc(220);
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        ),
+        url(../img/nat-5.jpg);
+    }
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        ),
+        url(../img/nat-6.jpg);
+    }
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        ),
+        url(../img/nat-7.jpg);
+    }
+  }
+
+  &__heading {
+    font-size: $heading-text-m;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: $color-white;
+    display: inline-block;
+    position: absolute;
+    top: 30%;
+    right: 0;
+    width: 60%;
+  }
+  &__heading-span {
+    padding: rem-calc(10) rem-calc(15);
+    box-decoration-break: clone;
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, 0.85),
+        rgba($color-secondary-dark, 0.85)
+      );
+    }
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.85),
+        rgba($color-primary-dark, 0.85)
+      );
+    }
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-tertiary-light, 0.85),
+        rgba($color-tertiary-dark, 0.85)
+      );
+    }
+  }
+  &__details {
+    padding-top: rem-calc(30);
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+      li {
+        text-align: center;
+        font-size: $text-size-base;
+        padding: rem-calc(10);
+
+        &:not(:last-child) {
+          border-bottom: 1px dotted $color-grey-dark;
+        }
+      }
+    }
+  }
+
+  // CARD BACK SIDE
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    text-align: center;
+  }
+
+  &__price-box {
+    text-align: center;
+    margin-bottom: $gutter-vertical;
+    color: $color-white;
+  }
+  &__price-only {
+    font-size: $text-size-s;
+    text-transform: uppercase;
+  }
+  &__price-value {
+    font-size: $heading-text-xl;
+  }
+  // CARDS RESPONSIVE STYLES
+  @media only screen and (max-width: 50em), only screen and (hover: none) {
+    height: auto;
+    background-color: $color-white;
+    box-shadow: $box-shadow;
+
+    &__side {
+      height: auto;
+      position: relative;
+      box-shadow: none;
+
+      &--back {
+        transform: rotateY(0);
+        -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &:hover &__side--back {
+      transform: rotateY(0);
+    }
+
+    // CARD BACK SIDE
+    &__cta {
+      position: relative;
+      top: 0%;
+      left: 0%;
+      transform: translate(0);
+      width: 100%;
+      padding: rem-calc(70) rem-calc(40) rem-calc(40) rem-calc(40);
+    }
+
+    &__price-box {
+      margin-bottom: $gutter-vertical-small;
+    }
+
+    &__price-value {
+      font-size: $heading-text-xl;
+    }
+  }
+}

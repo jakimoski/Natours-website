@@ -1,0 +1,57 @@
+@use "../abstracts/" as *;
+// STYLES FOR THE FOOTER
+.footer {
+  background-color: $color-grey-dark-3;
+  padding: rem-calc(50) 0;
+  font-size: $text-size-s;
+  color: $color-grey-light;
+  text-align: center;
+  @include screenSize(tablet) {
+    padding: rem-calc(30) 0;
+  }
+
+  &__navigation {
+    border-top: 1px solid $color-grey-light-1;
+    padding: rem-calc(20) 0;
+    display: inline-block;
+  }
+
+  &__logo {
+    width: rem-calc(150);
+    height: auto;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: rem-calc(15);
+    }
+  }
+
+  &__link {
+    color: $color-grey-light;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+    background-color: $color-grey-dark-3;
+
+    &:hover,
+    &:active {
+      color: $color-primary;
+      box-shadow: $box-shadow-small;
+      transform: rotate(5deg) scale(1.1);
+    }
+  }
+
+  &__copyright {
+    border-top: 1px solid $color-grey-light-1;
+    padding: rem-calc(20) 0;
+    display: inline-block;
+  }
+}

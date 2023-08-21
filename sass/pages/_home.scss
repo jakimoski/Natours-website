@@ -1,0 +1,93 @@
+@use "../abstracts/" as *;
+
+.section-about {
+  background-color: $color-grey-light;
+  padding: rem-calc(250) 0;
+  margin-top: -15vh;
+  @include screenSize(tablet) {
+    padding: rem-calc(200) 0;
+  }
+}
+
+.section-features {
+  padding: rem-calc(200) 0;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/nat-4.jpg);
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
+  margin-top: rem-calc(-115);
+  position: relative;
+  -webkit-clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+  @include screenSize(tablet) {
+    padding: rem-calc(150) 0;
+    -webkit-clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+    clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+  }
+}
+
+.section-tours {
+  padding: rem-calc(250) 0 rem-calc(100) 0;
+  margin-top: -15vh;
+  @include screenSize(tablet) {
+    padding: rem-calc(200) rem-calc(50) rem-calc(50) rem-calc(50);
+  }
+}
+.section-stories {
+  padding: rem-calc(100) 0;
+  position: relative;
+  @include screenSize(tablet) {
+    padding: rem-calc(50);
+  }
+}
+
+.section-book {
+  padding: rem-calc(100) 0;
+  background-image: linear-gradient(
+    to right bottom,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  @include screenSize(tablet) {
+    padding: rem-calc(50) 0;
+  }
+}
+
+.book {
+  background-image: linear-gradient(
+      105deg,
+      rgba($color-white, 0.9) 0%,
+      rgba($color-white, 0.9) 60%,
+      transparent 60%
+    ),
+    url(../img/nat-10.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: rem-calc(5);
+  width: 100%;
+  box-shadow: $box-shadow;
+  position: relative;
+  @include screenSize(tablet) {
+    background-image: linear-gradient(
+        rgba($color-white, 0.9),
+        rgba($color-white, 0.9)
+      ),
+      url(../img/nat-10.jpg);
+  }
+
+  &__form {
+    width: 60%;
+    padding: rem-calc(60);
+    z-index: 2;
+    position: relative;
+
+    @include screenSize(tablet) {
+      width: 100%;
+    }
+  }
+}

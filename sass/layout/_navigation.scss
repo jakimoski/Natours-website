@@ -1,0 +1,151 @@
+@use "../abstracts/" as *;
+// STYLES FOR THE NAVIGATION
+.navigation {
+  &__checkbox {
+    display: none;
+  }
+
+  &__button {
+    background-color: $color-white;
+    height: rem-calc(70);
+    width: rem-calc(70);
+    border-radius: 50%;
+    position: fixed;
+    top: rem-calc(40);
+    right: rem-calc(40);
+    z-index: 2000;
+    box-shadow: $box-shadow-small;
+    text-align: center;
+    cursor: pointer;
+
+    @include screenSize(phone) {
+      top: rem-calc(30);
+      right: rem-calc(30);
+    }
+  }
+  &__background {
+    height: rem-calc(60);
+    width: rem-calc(60);
+    border-radius: 50%;
+    position: fixed;
+    top: rem-calc(45);
+    right: rem-calc(45);
+    background-image: radial-gradient(
+      $color-primary-light,
+      $color-primary-dark
+    );
+    z-index: 1000;
+    transition: all 0.5s ease-in-out;
+
+    @include screenSize(phone) {
+      top: rem-calc(35);
+      right: rem-calc(35);
+    }
+  }
+
+  &__nav {
+    height: 100vh;
+    width: 0%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+    width: 100%;
+  }
+
+  &__item {
+    margin: rem-calc(10);
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      font-size: $text-size-xxl;
+      padding: rem-calc(10) rem-calc(20);
+      font-weight: 300;
+      color: $color-white;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        $color-white 50%
+      );
+      background-size: 250%;
+      transition: all 0.4s ease-in-out;
+    }
+    &:hover {
+      background-position: 100%;
+      color: $color-primary;
+      transform: translateX(rem-calc(10));
+    }
+  }
+
+  &__checkbox:checked ~ &__background {
+    transform: scale(70);
+  }
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%;
+    z-index: 1500;
+  }
+  // ICON
+  &__icon {
+    position: relative;
+    margin-top: rem-calc(35);
+    transition: all 0.2s ease-in-out;
+    &,
+    &::before,
+    &::after {
+      width: rem-calc(30);
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+    }
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.3s ease-in-out;
+    }
+    &::before {
+      top: rem-calc(-8);
+    }
+    &::after {
+      top: rem-calc(8);
+    }
+  }
+
+  &__button:hover &__icon::before {
+    top: rem-calc(-10);
+  }
+  &__button:hover &__icon::after {
+    top: rem-calc(10);
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}

@@ -1,0 +1,65 @@
+@use "../abstracts/" as *;
+.story {
+  filter: drop-shadow($box-shadow);
+  flex-basis: 100%;
+  margin-bottom: $gutter-vertical;
+  &__inner {
+    width: 75%;
+    margin: 0 auto;
+    background-color: rgba($color-white, 0.7);
+    border-radius: rem-calc(3);
+    padding: rem-calc(60);
+    padding-left: rem-calc(90);
+    font-size: $text-size-base;
+    -webkit-clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+    @include screenSize(tablet) {
+      width: 100%;
+      padding: rem-calc(30);
+    }
+  }
+
+  &__shape {
+    width: rem-calc(150);
+    height: rem-calc(150);
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(rem-calc(-30));
+    position: relative;
+    @include screenSize(phone) {
+      float: none;
+      transform: translateX(0);
+    }
+  }
+
+  &__image {
+    height: 100%;
+    transform: scale(1.4);
+    transition: all 0.3s ease-in-out;
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: $text-size-base;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__image {
+    transform: scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+}

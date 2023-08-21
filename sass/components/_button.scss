@@ -1,0 +1,104 @@
+@use "../abstracts/" as *;
+// STYLES FOR ALL BUUTONS
+.btn {
+  &,
+  &:link,
+  :visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: rem-calc(15) rem-calc(40);
+    display: inline-block;
+    border-radius: rem-calc(100);
+    transition: all 0.2s;
+    position: relative;
+    font-size: $text-size-base;
+    border: none;
+    cursor: pointer;
+  }
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $box-shadow-small;
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 rem-calc(5) rem-calc(10) rgba($color-black, 0.2);
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: rem-calc(100);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+    &::after {
+      background-color: $color-white;
+    }
+  }
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+  &--animated {
+    animation: moveinbottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
+}
+
+.btn-txt {
+  &:link,
+  &:visited {
+    font-size: $text-size-base;
+    color: $color-primary;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    text-decoration: none;
+    padding: rem-calc(10) rem-calc(20);
+    transition: all 0.2s ease-in-out;
+    position: relative;
+  }
+  &::before {
+    content: "";
+    height: 5%;
+    width: 100%;
+    background-image: linear-gradient(
+      to right,
+      $color-primary-light,
+      $color-primary-dark
+    );
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: all 0.2s ease-in-out;
+  }
+  &:hover {
+    color: $color-white;
+    box-shadow: $box-shadow-small;
+    transform: translateY(rem-calc(-2));
+    &::before {
+      height: 100%;
+      z-index: -1;
+    }
+  }
+  &:active {
+    transform: translateY(rem-calc(0));
+    box-shadow: 0 rem-calc(5) rem-calc(10) rgba($color-black, 0.2);
+  }
+}

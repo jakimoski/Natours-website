@@ -1,0 +1,93 @@
+@use "../abstracts/" as *;
+// STYLES FOR POPUP ON CARDS IN TOURS SECTION
+.popup {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  &__overlay {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color-white, 0.3);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+
+  &__content {
+    @include absCenter;
+    width: 90%;
+    background-color: $color-white;
+    box-shadow: $box-shadow;
+    border-radius: rem-calc(5);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+  &__img {
+    display: block;
+    width: 100%;
+    @include screenSize(tablet) {
+      width: 49%;
+      height: 100%;
+      display: inline-block;
+    }
+  }
+  &__left {
+    width: 33.33333%;
+    @include screenSize(tablet) {
+      width: 100%;
+    }
+  }
+  &__right {
+    width: 66.6666%;
+    padding: rem-calc(30) rem-calc(50);
+    @include screenSize(tablet) {
+      width: 100%;
+    }
+  }
+  &__text {
+    column-count: 2;
+    column-gap: $gutter-base;
+  }
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  &__close {
+    &:link,
+    &:visited {
+      color: $color-primary-dark;
+      position: absolute;
+      top: rem-calc(25);
+      right: rem-calc(25);
+      width: rem-calc(30);
+      height: rem-calc(30);
+      font-size: 30px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease-in-out;
+      line-height: rem-calc(30);
+      background-color: $color-white;
+      border-radius: 50%;
+      text-align: center;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

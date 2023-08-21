@@ -1,0 +1,57 @@
+@use "sass:math";
+
+@function rem-calc($size) {
+  @return (math.div($size, 16)) * 1rem;
+}
+// Colors
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-grey-light: #f7f7f7;
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+$color-grey-light: #f7f7f7;
+$color-grey-light-1: #eee;
+$color-white: #fff;
+$color-black: #000;
+
+// Font sizes
+$font-wight-base: 400;
+$font-wight-bold: 700;
+
+$heading-text-xl: rem-calc(60);
+$heading-text-ll: rem-calc(50);
+$heading-text-l: rem-calc(35);
+$heading-text-m: rem-calc(25);
+$heading-text-s: rem-calc(20);
+
+$text-size-xs: rem-calc(12);
+$text-size-s: rem-calc(14);
+$text-size-base: rem-calc(16);
+$text-size-m: rem-calc(18);
+$text-size-xxl: rem-calc(30);
+
+// Spacing settings
+
+// GRID
+$grid-width: rem-calc(1140);
+$gutter-vertical: rem-calc(80);
+$gutter-vertical-small: rem-calc(15);
+$gutter-base: rem-calc(40);
+
+// Spacing for flex elements with space-between on x axis
+$flex-basis-50: calc(50% - math.div($gutter-base, 2));
+$flex-basis-33: calc(33.33% - math.div($gutter-base * 2, 3));
+$flex-basis-25: calc(25% - math.div($gutter-base * 3, 4));
+
+// Shadows
+
+$box-shadow: 0 rem-calc(15) rem-calc(40) rgba($color-black, 0.2);
+$box-shadow-hover: 0 rem-calc(25) rem-calc(40) rgba($color-black, 0.3);
+$box-shadow-small: 0 rem-calc(10) rem-calc(20) rgba($color-black, 0.2);

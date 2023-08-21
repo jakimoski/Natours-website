@@ -1,0 +1,14 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "Natours Website",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "sass sass/main.scss css/main.css -w"
+  },
+  "author": "Vlatko Jakimoski",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.66.1"
+  }
+}

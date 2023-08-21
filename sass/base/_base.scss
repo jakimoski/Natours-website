@@ -1,0 +1,28 @@
+@use "../abstracts/" as *;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+
+  @include screenSize(tablet) {
+    font-size: 87.5%;
+  }
+
+  @include screenSize(phone) {
+    font-size: 75%;
+  }
+
+  @include screenSize(big-desktop) {
+    font-size: 112.5%;
+  }
+}

@@ -1,0 +1,40 @@
+@use "../abstracts/" as *;
+@use "sass:math";
+// STYLES FOR THE GLOBAL GRID
+.row {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  @include screenSize(tablet) {
+    padding: 0 math.div($gutter-base, 2);
+  }
+
+  .flex-50 {
+    flex-basis: $flex-basis-50;
+    @include screenSize(tablet) {
+      flex-basis: 100%;
+      &:not(:last-child) {
+        margin-bottom: $gutter-base;
+      }
+    }
+  }
+  .flex-33 {
+    flex-basis: $flex-basis-33;
+    @include screenSize(tablet) {
+      flex-basis: 100%;
+      margin-bottom: $gutter-base;
+    }
+  }
+  .flex-25 {
+    flex-basis: $flex-basis-25;
+    @include screenSize(tablet) {
+      flex-basis: $flex-basis-50;
+      margin-bottom: $gutter-base;
+    }
+    @include screenSize(phone) {
+      flex-basis: 100%;
+    }
+  }
+}

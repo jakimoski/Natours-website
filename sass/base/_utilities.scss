@@ -1,0 +1,16 @@
+@use "../abstracts/" as *;
+.u-center-text {
+  text-align: center;
+}
+
+.u-margin-bottom-l {
+  margin-bottom: $gutter-vertical;
+}
+
+.u-margin-bottom-s {
+  margin-bottom: $gutter-vertical-small;
+}
+
+.u-margin-top-l {
+  margin-top: $gutter-vertical;
+}

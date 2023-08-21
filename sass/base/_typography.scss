@@ -1,0 +1,78 @@
+@use "../abstracts/" as *;
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $color-grey-dark;
+}
+p {
+  user-select: none;
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  margin-bottom: rem-calc(40);
+
+  &--main {
+    display: block;
+    font-size: $heading-text-xl;
+    font-weight: 400;
+    letter-spacing: rem-calc(35);
+    animation: moveinleft 1s ease-in-out;
+
+    @include screenSize(tablet) {
+      letter-spacing: rem-calc(20);
+    }
+  }
+  &--sub {
+    display: block;
+    font-size: $heading-text-s;
+    font-weight: 700;
+    letter-spacing: rem-calc(17);
+    animation: moveinright 1s;
+
+    @include screenSize(tablet) {
+      letter-spacing: rem-calc(10);
+    }
+  }
+}
+
+.heading-secondary {
+  font-size: $heading-text-l;
+  text-transform: uppercase;
+  font-weight: $font-wight-bold;
+  background-image: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  display: inline-block;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  letter-spacing: rem-calc(2);
+  transition: all 0.2s ease-in-out;
+
+  @include screenSize(tablet) {
+    font-size: $heading-text-m;
+  }
+
+  &:hover {
+    transform: skewX(15deg) skewY(2deg) scale(1.1);
+    text-shadow: rem-calc(5) rem-calc(10) rem-calc(20) rgba($color-black, 0.2);
+  }
+}
+
+.heading-tertiary {
+  font-size: $text-size-m;
+  font-weight: $font-wight-bold;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-style: $text-size-base;
+  &:not(:last-child) {
+    margin-bottom: rem-calc(30);
+  }
+}
