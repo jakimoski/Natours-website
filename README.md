@@ -13,4 +13,4 @@ https://github.com/jakimoski/Natours-website.git
 
 ```
 
-![Alt text](image ./screencapture-jakimoski-github-io-Natours-website-2024-02-17-12_02_09.png)
+![Alt text](./screencapture-jakimoski-github-io-Natours-website-2024-02-17-12_02_09.png)
